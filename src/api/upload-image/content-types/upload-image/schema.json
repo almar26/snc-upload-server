@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "upload_images",
+  "info": {
+    "singularName": "upload-image",
+    "pluralName": "upload-images",
+    "displayName": "UploadImage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "image_id": {
+      "type": "integer"
+    }
+  }
+}
