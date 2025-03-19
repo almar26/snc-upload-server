@@ -15,7 +15,7 @@ COPY package*.json ./
 # Add Environment variables
 #SERVER CONFIG
 ENV STRAPI_HOST=0.0.0.0
-ENV STRAPI_PORT=1337
+ENV STRAPI_PORT=1338
 
 # Install production dependencies.
 RUN npm install
@@ -26,7 +26,7 @@ COPY . ./
 # This build command will build the Web ui of the CMS
 RUN npm run build
 # Expose the Port Outside the container to the localhost
-EXPOSE 1337
+EXPOSE 1338
 
 # Run the web service on container startup.
 CMD [ "npm", "run" ,"start" ]
