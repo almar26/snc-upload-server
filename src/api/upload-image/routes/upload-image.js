@@ -27,7 +27,12 @@ const myExtraRoutes = [
         method: "POST",
         path: "/upload-image/create",
         handler: "upload-image.uploadImage"
-    }
+    },
+    {
+        method: "GET",
+        path: "/upload-image/:documentid",
+        handler: "upload-image.getImageDetails"
+    },
 ]
 
 module.exports = customRouter(defaultRouter, myExtraRoutes);

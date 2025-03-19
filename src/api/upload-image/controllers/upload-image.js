@@ -41,6 +41,38 @@ module.exports = createCoreController('api::upload-image.upload-image',
                 console.log("[uploadImage] Error: ", err.message);
                 return ctx.badRequest(err.message);
             }
+        },
+
+        async getImageDetails(ctx) {
+            const { documentid } = ctx.params;
+            try {
+                console.log("[getImageDetails] Incoming Request!");
+                let noRecordFound = {
+                    message: `No Record Found!`,
+                    status: "fail",
+                  };
+
+                const result = await strapi.documents("api::upload-image.upload-image").findMany({
+                    filters: {
+                        documentId: documentid
+                    }
+                    
+                });
+
+                if (result) {
+                    ctx.status = 200;
+                    return ctx.body = result;
+                } 
+
+                if (result.length != 0) {
+                    console.log("[getImageDetails] Error: ", result);
+                    return ctx.body = noRecordFound;
+                }   
+
+            } catch (err) {
+                console.log("[getImageDetails] Error: ", err.message);
+                return ctx.badRequest(err.message);
+            }
         }
     })
 );
